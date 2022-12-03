@@ -4,12 +4,22 @@
 }
 
 body{
+    gap: 50px;
     width:100vw;
     height:100vh;
     background-color: #14BDAC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 1s;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 table {
     border-spacing: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
 table > tbody > tr > td{
@@ -40,4 +50,29 @@ i{
 }
 .red-font{
     color: #ce3a3a;
+}
+#WinMessage{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    font-size:30px;
+    opacity:0;
+    filter: blur(5px);
+    transition-duration: 500ms;
+    transition-timing-function: ease-in;
+    color: #14BDAC;
+    flex-basis: 50px;
+}
+#Active{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    font-size:30px;
+    opacity:1;
+    filter: blur(0);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    flex-basis: 50px;
+}
+
+.text-center{
+    text-align: center;
 }
