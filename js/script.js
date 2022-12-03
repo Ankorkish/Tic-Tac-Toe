@@ -1,37 +1,11 @@
 window.tacktoe = [[null, null, null], [null, null, null], [null, null, null]]
 window.turn = 1;
-
+window.NotPlayble = false;
 window.onload = () => {
     let table = document.querySelector("table");
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            table.rows[i].cells[j].onclick = (e) => {
-                if (e.target.nodeName == "TD") {
-                    var cell = e.target || window.event.srcElement;
-                    //alert( cell.cellIndex + ' : ' + cell.parentNode.rowIndex );
-                    if (tacktoe[cell.parentNode.rowIndex][cell.cellIndex] == null) {
-                        tacktoe[cell.parentNode.rowIndex][cell.cellIndex] = turn;
-                        let str = "";
-                        for (let k = 0; k < 3; k++) {
-                            str += tacktoe[k] + "\n";
-                        }
-                        //alert(str);
-                        if (turn == -1) {
-                            e.target.firstElementChild.innerHTML = `<i class="fa-solid fa-xmark red-font"></i>`;
-                        }
-                        else {
-                            e.target.firstElementChild.innerHTML = `<i class="fa-solid fa-o white-font"></i>`;
-                        }
-                        if (typeof IsEnd() != "boolean") {
-                            document.getElementById("WinMessage").innerText = `Congratulations the ${turn == 1 ? "CIRCLE" : "CROSS"} Player! \n You Won!`;
-                            document.getElementById("WinMessage").classList.add(turn == 1 ? "white-font" : "red-font")
-                            document.getElementById("WinMessage").hidden = false;
-                            document.getElementById("WinMessage").id = "Active";
-                        }
-                        turn *= -1;
-                    }
-                }
-            };
+            table.rows[i].cells[j].onclick = f;
         }
     }
 }
@@ -49,7 +23,9 @@ function IsEnd() {
     return false
 }
 
-function f() {
+function f(e) {
+    if (NotPlayble)
+        return null;
     if (e.target.nodeName == "TD") {
         var cell = e.target || window.event.srcElement;
         //alert( cell.cellIndex + ' : ' + cell.parentNode.rowIndex );
@@ -71,9 +47,9 @@ function f() {
                 document.getElementById("WinMessage").classList.add(turn == 1 ? "white-font" : "red-font")
                 document.getElementById("WinMessage").hidden = false;
                 document.getElementById("WinMessage").id = "Active";
+                NotPlayble = true;
             }
             turn *= -1;
         }
     }
-
 }
