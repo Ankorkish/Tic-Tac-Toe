@@ -53,6 +53,9 @@ i{
 .red-font{
     color: #ce3a3a;
 }
+.black-font{
+    color: black
+}
 #WinMessage{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;

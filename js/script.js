@@ -1,5 +1,6 @@
 window.tacktoe = [[null, null, null], [null, null, null], [null, null, null]]
 window.turn = 1;
+window.turnCount = 0;
 window.NotPlayble = false;
 window.onload = () => {
     let table = document.querySelector("table");
@@ -52,7 +53,19 @@ function f(e) {
                 document.body.style.height = "50vh"
                 NotPlayble = true;
             }
+            if(turnCount == 8){
+                document.getElementById("WinMessage").innerText = `Draw.`;
+                document.getElementById("WinMessage").classList.add("black-font");
+                document.getElementById("WinMessage").style.fontSize = "100px"
+                document.getElementById("WinMessage").hidden = false;
+                document.getElementById("WinMessage").id = "Active";
+                let table = document.querySelector("table");
+                table.style.opacity = 0;
+                document.body.style.height = "50vh"
+                NotPlayble = true;
+            }
             turn *= -1;
+            ++turnCount;
         }
     }
 }
