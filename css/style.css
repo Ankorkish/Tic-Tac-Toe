@@ -20,6 +20,8 @@ table {
     border-spacing: 0;
     width: fit-content;
     height: fit-content;
+    transition-duration: 1s;
+    flex-basis: 0px;
 }
 
 table > tbody > tr > td{
@@ -61,6 +63,7 @@ i{
     transition-timing-function: ease-in;
     color: #14BDAC;
     flex-basis: 50px;
+    top:0px;
 }
 #Active{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -71,6 +74,7 @@ i{
     transition-duration: 500ms;
     transition-timing-function: ease-out;
     flex-basis: 50px;
+    top:100px;
 }
 
 .text-center{

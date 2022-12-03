@@ -47,6 +47,9 @@ function f(e) {
                 document.getElementById("WinMessage").classList.add(turn == 1 ? "white-font" : "red-font")
                 document.getElementById("WinMessage").hidden = false;
                 document.getElementById("WinMessage").id = "Active";
+                let table = document.querySelector("table");
+                table.style.opacity = 0;
+                document.body.style.height = "50vh"
                 NotPlayble = true;
             }
             turn *= -1;
