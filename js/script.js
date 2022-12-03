@@ -46,11 +46,15 @@ function f(e) {
             if (typeof IsEnd() != "boolean") {
                 document.getElementById("WinMessage").innerText = `Congratulations the ${turn == 1 ? "CIRCLE" : "CROSS"} Player! \n You Won!`;
                 document.getElementById("WinMessage").classList.add(turn == 1 ? "white-font" : "red-font")
-                document.getElementById("WinMessage").hidden = false;
+                document.getElementById("WinMessage").hidden = false;       
                 document.getElementById("WinMessage").id = "Active";
                 let table = document.querySelector("table");
-                table.style.opacity = 0;
-                document.body.style.height = "50vh"
+                table.style.opacity = 50;
+		        table.style.filter = `blur(5px)`;
+                table.style.scale  = "70%";
+                table.style.transform = "translate(0, 200px)";
+                document.body.style.height = "50vh";
+                document.body.style.gap = 0;
                 NotPlayble = true;
             }
             if(turnCount == 8){
